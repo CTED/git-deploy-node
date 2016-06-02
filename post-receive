@@ -1,0 +1,20 @@
+#!/bin/sh
+# deploy script
+
+NODE_ENV=production                                  
+appname=livetracker                                  
+live_dir=/var/www/nodejs/livetracker                 
+                                                     
+sudo git --work-tree="$live_dir" checkout -f         
+                                                     
+# change to live directory                            
+cd "$live_dir"                                       
+                                                     
+# install packages                                   
+sudo npm install                                     
+                                                     
+# restart app                                        
+echo "restarting app...";                            
+sudo pm2 start pm2process.json                       
+                                                     
+echo "deployed to $NODE_ENV";                        
