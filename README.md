@@ -40,7 +40,8 @@ Modify post-receive as needed. This is your build process.
 
 ### Setup local dev machine (laptop)
 
-Add a remote named 'prod' to deploy to from local working copy (this is where you will deploy from).
+*Assumption: You've already set up your ssh key and you can ssh into the server without specifying the key*
+Add a remote named 'production' to deploy to from local working copy (this is where you will deploy from).
 
 	git remote add production ubuntu@ec2-52-86-63-176.compute-1.amazonaws.com:~/gitdeploy/apps/livetracker
 
