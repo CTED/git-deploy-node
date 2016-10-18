@@ -17,11 +17,11 @@ When you are finished, you will be able to do continuous deployment using the fo
 
 This is where you will deploy to
 
-	mkdir -p ~/gitdeploy/apps/livetracker
+	mkdir -p ~/gitdeploy/livetracker
 
 This is where the post-receive hook will export production code to (and served from by nginx)
 
-	mkdir -p /var/www/nodejs/livetracker
+	mkdir -p /var/www/livetracker
 	
 
 Setup deploy branch
@@ -32,11 +32,15 @@ Setup deploy branch
 Copy post-receive hook into repo
 
 	cp ~/projects/git-deploy-node/post-receive ~/deploy/example.com/hooks/
-
+    
+    
 Modify post-receive as needed. This is your build process.
 
 	npm install
 	NODE_ENV=production grunt deploy
+    
+Make script executable.
+    chmod +x post-receive
 
 ### Setup local dev machine (laptop)
 
@@ -44,7 +48,7 @@ Modify post-receive as needed. This is your build process.
 
 Add a remote named 'production' to deploy to from local working copy (this is where you will deploy from).
 
-	git remote add production ubuntu@ec2-52-86-63-176.compute-1.amazonaws.com:~/gitdeploy/apps/livetracker
+	git remote add production ubuntu@ec2-52-86-63-176.compute-1.amazonaws.com:~/gitdeploy/livetracker
 
 List remotes
 
