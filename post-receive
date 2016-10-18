@@ -3,7 +3,7 @@
 
 NODE_ENV=production                                  
 appname=livetracker                                  
-live_dir=/var/www/nodejs/livetracker                 
+live_dir=/var/www/livetracker                 
                                                      
 sudo git --work-tree="$live_dir" checkout -f         
                                                      
@@ -15,6 +15,6 @@ sudo npm install
                                                      
 # restart app                                        
 echo "restarting app...";                            
-sudo pm2 start pm2process.json                       
+sudo pm2 startOrRestart pm2process.json                  
                                                      
 echo "deployed to $NODE_ENV";                        
